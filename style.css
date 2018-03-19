@@ -16,6 +16,10 @@ body{
     position: absolute;
     z-index: 2;
     bottom: 20px;
+       display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
 }
 .drawer::before{
     content: " ";
@@ -73,20 +77,48 @@ body{
     height: 50px;
     width: 50px;
     display: none;
+    position: absolute;
+}
+.isotech{
+    background-image: url(png/isotech.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+    left: 100px;
+    top: 60px;
+     height: 70px;
+    width: 200px;
+    
 }
 
-
 .car{
+    height: 70px;
+    width: 70px;
     background-image: url(png/car.png);
+    background-size: contain;
+    z-index: 3;
+    left: 400px;
 }
 .help{
         background-image: url(png/011-customer-support.png);
+        background-size: contain;
+        z-index: 3;
+        left: 600px;
+
 }
 .tools{
     background-image: url(png/002-tools.png);
+    background-size: contain;
+    z-index: 3;
+        left: 800px;
+    
 }
 .book{
     background-image: url(png/001-book.png);
+    background-size: contain;
+    z-index: 3;
+
+        left: 1000px;
     
 }
 
@@ -95,4 +127,5 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: row;
 }
