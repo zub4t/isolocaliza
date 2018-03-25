@@ -1,59 +1,55 @@
 <!DOCTYPE>
+
+
 <html>
     <head>
          <meta charset="UTF-8"> 
         <title>isolocaliza</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script type="text/javascript" src="scrpitMpa.js"></script>
         <script type="text/javascript" src="scrpitCss.js"></script>
+        <script type="text/javascript" src="scrpitMpa.js"></script>
 
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 
     </head>
-    <body>
-        <div id="map">
+    <body id="body">
+        <div id="map" class="map">
           
         </div>
+        <div class="GeneralSpeeds">
+            <div class="Atego Speed">  
+            </div>
+             <div class="Atron Speed">
+            </div>
+             <div class="Omega Speed">
+            </div>
+        
+        </div>
+        
+        
         <div class="wraped">   
             <div class="drawer" id="drawer"> 
                 <!-- drawer is where the icons shall stay --> 
                 
-                <a href="" class="icon isotech"> </a>
+                <a class="icon termo" value="isotech, manaus" onclick="getRoute('Termotécnica, manaus')"> </a>
+                <a class="icon honda" value="honda, manaus" onclick="getRoute('honda, manaus')"> </a>
+                <a class="icon philco" value="philco, manaus" onclick="getRoute('philco, manaus')"> </a>
+
                 
-                
-                <!-- here should be the icon for sherch the car on the map--><a href="" class="icon car"> </a>
-                <!-- here should be the icon for help the user anderstand how the plataform works--><a href="" class="icon help"> </a>
-                <!-- here should be the icon which can customazing some preferes of the users--><a href="" class="icon tools"> </a>
-                <!-- here shloud be the icon which show for the users some statics of the cars--><a href="" class="icon  book"> </a>
+                <!-- here should be the icon for sherch the car on the map--><a class="icon car" onclick="drop()"> </a>
+                <!-- here should be the icon for help the user anderstand how the plataform works--><a  class="icon help"> </a>
+                <!-- here should be the icon which can customazing some preferes of the users--><a class="icon tools"> </a>
+                <!-- here shloud be the icon which show for the users some statics of the cars--><a  class="icon  book"> </a>
             </div>
         </div>
         
-<?php 
-$lat= ($_GET['lat']);
-$lng= ($_GET['lng']);
-//$time= ($_GET['time']);
-//$date= ($_GET['date']);
-//$speed= ($_GET['speed']);
+            <div id="warnings-panel"> <div class="chat">
+                <div class="atronSerch" onclick="centralized(1)"></div>
+                <div class="ategoSerch" onclick="centralized(2)"></div>
+                <div class="omegaSerch" onclick="centralized(3)"></div>
+                </div></div>
 
-echo(" var myLatLng = {lat: ".$lat." , lng: ".$lng."};
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });");
-
-
-
-?>
-
-        
-        
         
         
         
@@ -66,7 +62,259 @@ echo(" var myLatLng = {lat: ".$lat." , lng: ".$lng."};
         
     </body>
      <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEQsqujVt5jhubQjf545HO9e2hNtR8API&callback=initMap">
+             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEQsqujVt5jhubQjf545HO9e2hNtR8API&callback=initMap">
     </script>
     
+    
+ <?php
+    
+if(empty($_GET['lat'])){
+        $lat = 0;$lng=0;
+}else{
+    $lat= ($_GET['lat']);
+    $lng= ($_GET['lng']);
+
+}
+//$time= ($_GET['time']);
+//$date= ($_GET['date']);
+//$speed= ($_GET['speed']);
+
+if(empty($_GET['lat1'])){
+        $lat1 = 0;$lng1=0;
+}else{
+    $lat1= ($_GET['lat1']);
+    $lng1= ($_GET['lng1']);
+
+}
+//$time= ($_GET['time']);
+//$date= ($_GET['date']);
+//$speed= ($_GET['speed']);
+    
+    
+if(empty($_GET['lat2'])){
+        $lat2 = 0;$lng2=0;
+}else{
+    $lat2= ($_GET['lat2']);
+    $lng2= ($_GET['lng2']);
+
+}
+//$time= ($_GET['time']);
+//$date= ($_GET['date']);
+//$speed= ($_GET['speed']);
+
+echo("<script> 
+    window.markers = [];
+    window.markers1 = [];
+    window.markers2 = [];
+
+    window.Clocationlat=0;
+    window.Clocation1lat=0;
+    window.Clocation2lat=0;
+ 
+    window.Clocationlng=0;
+    window.Clocation1lng=0;
+    window.Clocation2lng=0;
+    
+    window.Speed=0;
+    window.Speed1=0;
+    window.Speed2=0;
+    
+    window.onload = initPage;
+
+  
+
+
+
+function initPage(){
+    window.image = 'http://localhost/adiciona/png/jeep.png';
+    window.image1= 'http://localhost/adiciona/png/jeep1.png';
+    window.image2= 'http://localhost/adiciona/png/jeep2.png';
+    //$('.car').bind('click',drop());
+ 
+
+    
+
+}
+ document.addEventListener('DOMContentLoaded', function(){
+        setInterval(function(){
+            //here is where the code for call the functio which will get date from the my file.
+        var p;
+        
+                ajaxcall();
+                if(Clocationlat!=0){
+                //clearMarkers(markers) ;
+                 console.log('vo add '+Clocationlat+' '+Clocationlng);
+                
+                p= new google.maps.LatLng(Clocationlat,Clocationlng);
+              
+              markers.push(new google.maps.Marker({
+                    position:p,
+                    map: map,
+                    icon:image
+
+                })); 
+                markers[0].setMap(map);
+                //map.setCenter(markers[0].getPosition());
+                console.log(markers[0]);
+            }
+            
+            
+                if(Clocation1lat!=0){
+               // clearMarkers(markers1) ;
+                p= new google.maps.LatLng(Clocation1lat,Clocation1lng);
+               markers1.push(new google.maps.Marker({
+                    position:p ,
+                    map: map,
+                    icon:image1
+
+                })); 
+
+            }
+            
+                if(Clocation2lat!=0){
+                //clearMarkers(markers2) ;
+             p= new google.maps.LatLng(Clocation2lat,Clocation2lng);
+               markers2.push(new google.maps.Marker({
+                    position:p,
+                    map: map,
+                    icon:image2
+
+                })); 
+
+            }
+           
+        }, 3000);//
+   
+   
+   
+   });
+    
+    
+      function drop() {
+        console.log('apertei');
+     
+      }
+
+  
+
+      function clearMarkers(markers) {
+        console.log('LIMPANDO');
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers = [];
+      }
+
+    function addMarker(myLatLng){
+    
+        markers.push(new google.maps.Marker({
+            position: myLatLng,
+            title:'ADDMARKER',
+            icon:image ,
+            map: map
+            }));
+    }
+
+
+
+    function getRoute(x){
+    calculateAndDisplayRoute(directionsService, directionsDisplay,x);
+    }
+
+      
+      function calculateAndDisplayRoute(directionsService, directionsDisplay,x) {
+        var destino =x;
+        directionsService.route({
+         origin: 'Isotech, manaus',
+          destination:destino ,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+            
+            
+     
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+       
+function setValues(x){
+console.log(x[4]);
+    if(x[4]==1){
+        console.log('aqui eu');
+        Clocationlat=x[1];
+        Clocationlng=x[2];
+        Speed=x[3];
+    
+    }
+    if(x[4]==2){
+        Clocation1lat=x[1];
+        Clocation1lng=x[2];
+        Speed1=x[3];
+    }
+    if(x[4]==3){
+        Clocation2lat=x[1];
+        Clocation2lng=x[2];
+        Speed2=x[3];
+    }
+}
+
+function  ajaxcall(){
+				$.ajax({
+				url: 'mostra.php',
+				success: function(data) {
+                    console.log(data.split('T'));
+                   	setValues(data.split('T'));
+			 }
+                }
+                       );
+        
+        }
+
+function  centralized(x){
+    if(x==1){      
+    try{                        map.setCenter(markers[0].getPosition());
+    }catch (e) {
+                                alert('alvo nao encontrado');
+    }
+    }else{ 
+
+        if(x==2){
+        try{                    map.setCenter(markers1[0].getPosition());
+        }catch(e){
+                                alert('alvo nao encontrado');
+        }
+
+        }else    try{   map.setCenter(markers2[0].getPosition());
+                }catch(e){ alert('alvo nao encontrado');
+                }   
+    }
+
+}
+  
+  
+  
+  </script>");
+
+
+
+?>
+    
+    
+    
+    
+    
+    
+    
+  
 </html>
+
+
+
+
+    
+
+        
+  

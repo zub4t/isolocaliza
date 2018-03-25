@@ -1,0 +1,1 @@
+http://localhost/adiciona/index.php?placa=Joe&lat=Joe&lng=Joe&data=Joe&hora=Joe&velocidade=Joe

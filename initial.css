@@ -1,0 +1,29 @@
+body{
+   background:  linear-gradient(to bottom right, rgba(46,204,113,1), rgba(36,196,135,1));
+    
+    
+}
+
+.loader{
+    background-image: url(png/Spinner-1s-200px.gif);
+    position: absolute;
+    bottom: 50%;
+    right: 46%;
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.latter{
+ background-image: url(png/1_-02.png);
+    position: absolute;
+    bottom: 65%;
+    right: 2%;
+    height: 100px;
+    width: 1000px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    
+}
