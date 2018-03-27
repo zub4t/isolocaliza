@@ -230,7 +230,7 @@ body{
     background-image: url(png/car.png);
     background-size: contain;
     z-index: 3;
-    left: 400px;
+    left: 40%;
 }
 
 .chat{
@@ -241,7 +241,7 @@ body{
     z-index: 3;
     position: absolute;
     bottom:100px;
-    left:520px;
+    left:42%;
  
     display: none;
  
@@ -295,7 +295,7 @@ cursor: pointer;
         background-image: url(png/dashboard.png);
         background-size: contain;
         z-index: 3;
-        left: 600px;
+        left: 73%;
 
 }
 
@@ -307,7 +307,7 @@ cursor: pointer;
     background-image: url(png/002-tools.png);
     background-size: contain;
     z-index: 3;
-        left: 800px;
+        left: 88%;
     
 }
 .book{
@@ -315,7 +315,7 @@ cursor: pointer;
     background-size: contain;
     z-index: 3;
 
-        left: 1000px;
+        left: 59%;
     
 }
 

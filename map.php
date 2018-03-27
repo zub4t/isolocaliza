@@ -142,25 +142,23 @@ function initPage(){
         
                 ajaxcall();
                 if(Clocationlat!=0){
-                //clearMarkers(markers) ;
+                clearMarkers(markers) ;
                  console.log('vo add '+Clocationlat+' '+Clocationlng);
                 
-                p= new google.maps.LatLng(Clocationlat,Clocationlng);
+                p   = new google.maps.LatLng(Clocationlat,Clocationlng);
               
               markers.push(new google.maps.Marker({
-                    position:p,
+                    position: p,
                     map: map,
                     icon:image
 
                 })); 
-                markers[0].setMap(map);
-                //map.setCenter(markers[0].getPosition());
-                console.log(markers[0]);
+                console.log(markers);
             }
             
             
                 if(Clocation1lat!=0){
-               // clearMarkers(markers1) ;
+                clearMarkers(markers1) ;
                 p= new google.maps.LatLng(Clocation1lat,Clocation1lng);
                markers1.push(new google.maps.Marker({
                     position:p ,
@@ -172,7 +170,7 @@ function initPage(){
             }
             
                 if(Clocation2lat!=0){
-                //clearMarkers(markers2) ;
+                clearMarkers(markers2) ;
              p= new google.maps.LatLng(Clocation2lat,Clocation2lng);
                markers2.push(new google.maps.Marker({
                     position:p,
@@ -202,7 +200,7 @@ function initPage(){
         for (var i = 0; i < markers.length; i++) {
           markers[i].setMap(null);
         }
-        markers = [];
+      
       }
 
     function addMarker(myLatLng){
@@ -243,10 +241,11 @@ function initPage(){
 function setValues(x){
 console.log(x[4]);
     if(x[4]==1){
-        console.log('aqui eu');
+
         Clocationlat=x[1];
         Clocationlng=x[2];
         Speed=x[3];
+        console.log('aqui eu');
     
     }
     if(x[4]==2){
@@ -275,19 +274,19 @@ function  ajaxcall(){
 
 function  centralized(x){
     if(x==1){      
-    try{                        map.setCenter(markers[0].getPosition());
+    try{                        map.setCenter(markers[markers.length-1].getPosition());
     }catch (e) {
                                 alert('alvo nao encontrado');
     }
     }else{ 
 
         if(x==2){
-        try{                    map.setCenter(markers1[0].getPosition());
+        try{                    map.setCenter(markers1[markers.length-1].getPosition());
         }catch(e){
                                 alert('alvo nao encontrado');
         }
 
-        }else    try{   map.setCenter(markers2[0].getPosition());
+        }else    try{   map.setCenter(markers2[markers.length-1].getPosition());
                 }catch(e){ alert('alvo nao encontrado');
                 }   
     }
