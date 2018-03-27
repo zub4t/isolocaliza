@@ -76,10 +76,10 @@ $(document).ready(function(){
         
         });
         
-        function callSpeed(){ $(".SpeedAtron").attr('data-conteudo', Speed+"Km/h");}
+        function callSpeed(){ $(".SpeedAtron").attr('data-conteudo', Speed1+"Km/h");}
         setInterval(callSpeed,1500);
         
-        function callSpeed1(){ $(".SpeedAtego").attr('data-conteudo', Speed1+"Km/h");}
+        function callSpeed1(){ $(".SpeedAtego").attr('data-conteudo', Speed+"Km/h");}
         setInterval(callSpeed1,1500);
     
         function callSpeed2(){ $(".SpeedOmega").attr('data-conteudo', Speed2+"Km/h");}

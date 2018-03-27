@@ -45,8 +45,8 @@
         </div>
         
             <div id="warnings-panel"> <div class="chat">
-                <div class="atronSerch" onclick="centralized(1)"></div>
-                <div class="ategoSerch" onclick="centralized(2)"></div>
+                <div class="ategoSerch" onclick="centralized(1)"></div>
+                <div class="atronSerch" onclick="centralized(2)"></div>
                 <div class="omegaSerch" onclick="centralized(3)"></div>
                 </div></div>
 
@@ -141,47 +141,8 @@ function initPage(){
         var p;
         
                 ajaxcall();
-                if(Clocationlat!=0){
-                clearMarkers(markers) ;
-                 console.log('vo add '+Clocationlat+' '+Clocationlng);
-                
-                p   = new google.maps.LatLng(Clocationlat,Clocationlng);
               
-              markers.push(new google.maps.Marker({
-                    position: p,
-                    map: map,
-                    icon:image
-
-                })); 
-                console.log(markers);
-            }
-            
-            
-                if(Clocation1lat!=0){
-                clearMarkers(markers1) ;
-                p= new google.maps.LatLng(Clocation1lat,Clocation1lng);
-               markers1.push(new google.maps.Marker({
-                    position:p ,
-                    map: map,
-                    icon:image1
-
-                })); 
-
-            }
-            
-                if(Clocation2lat!=0){
-                clearMarkers(markers2) ;
-             p= new google.maps.LatLng(Clocation2lat,Clocation2lng);
-               markers2.push(new google.maps.Marker({
-                    position:p,
-                    map: map,
-                    icon:image2
-
-                })); 
-
-            }
-           
-        }, 3000);//
+            }, 3000);//
    
    
    
@@ -197,12 +158,13 @@ function initPage(){
 
       function clearMarkers(markers) {
         console.log('LIMPANDO');
+        if(markers!=null){
         for (var i = 0; i < markers.length; i++) {
           markers[i].setMap(null);
         }
-      
+        markers = [];
       }
-
+}
     function addMarker(myLatLng){
     
         markers.push(new google.maps.Marker({
@@ -239,24 +201,77 @@ function initPage(){
       }
        
 function setValues(x){
-console.log(x[4]);
-    if(x[4]==1){
 
-        Clocationlat=x[1];
-        Clocationlng=x[2];
-        Speed=x[3];
-        console.log('aqui eu');
+   if(x[4]==1){
+   
+        clearMarkers(markers);
     
     }
     if(x[4]==2){
-        Clocation1lat=x[1];
-        Clocation1lng=x[2];
+        clearMarkers(markers1);
+    }
+    if(x[4]==3){
+        clearMarkers(markers2);
+    }
+
+            if(x[1]!=x[2] ){
+             
+            }
+    if(x[4]==1){
+    
+    
+    
+     
+                console.log('to add '+x[1]+' - '+x[2]);
+                p= new google.maps.LatLng(x[1],x[2]);  
+                marcador = new google.maps.Marker({
+                    position:p,
+                    map: map,
+                    icon:image
+
+                });
+    
+    
+    
+        markers.push(marcador);
+        Speed=x[3];
+    
+    }
+    if(x[4]==2){
+    
+    
+    
+    
+     
+                console.log('to add '+x[1]+' - '+x[2]);
+                p= new google.maps.LatLng(x[1],x[2]);  
+                marcador = new google.maps.Marker({
+                    position:p,
+                    map: map,
+                    icon:image1
+
+                });
+    
+         markers1.push(marcador);
+
         Speed1=x[3];
     }
     if(x[4]==3){
-        Clocation2lat=x[1];
-        Clocation2lng=x[2];
-        Speed2=x[3];
+    
+     
+                console.log('to add '+x[1]+' - '+x[2]);
+                p= new google.maps.LatLng(x[1],x[2]);  
+                marcador = new google.maps.Marker({
+                    position:p,
+                    map: map,
+                    icon:image2
+
+                });
+    
+    
+            markers2.push(marcador);
+
+            Speed2=x[3];
     }
 }
 
@@ -264,7 +279,7 @@ function  ajaxcall(){
 				$.ajax({
 				url: 'mostra.php',
 				success: function(data) {
-                    console.log(data.split('T'));
+                   // console.log(data.split('T'));
                    	setValues(data.split('T'));
 			 }
                 }
@@ -274,19 +289,19 @@ function  ajaxcall(){
 
 function  centralized(x){
     if(x==1){      
-    try{                        map.setCenter(markers[markers.length-1].getPosition());
+    try{                        map.setCenter(markers[markers.length -1].getPosition());
     }catch (e) {
                                 alert('alvo nao encontrado');
     }
     }else{ 
 
         if(x==2){
-        try{                    map.setCenter(markers1[markers.length-1].getPosition());
+        try{                    map.setCenter(markers1[markers1.length -1].getPosition());
         }catch(e){
                                 alert('alvo nao encontrado');
         }
 
-        }else    try{   map.setCenter(markers2[markers.length-1].getPosition());
+        }else    try{   map.setCenter(markers2[markers2.length -1].getPosition());
                 }catch(e){ alert('alvo nao encontrado');
                 }   
     }
