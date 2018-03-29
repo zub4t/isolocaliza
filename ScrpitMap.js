@@ -101,7 +101,7 @@ function setValues(x){
              
         
         if(x[4]==1){
-            //console.log(' Atron position '+x[1]+' - '+x[2]);
+            console.log(' Atego position '+x[1]+' - '+x[2]);
             atego.setPosition(new google.maps.LatLng(x[1],x[2]));
             console.log(atego.getPosition().lat());
         
@@ -143,9 +143,8 @@ function  centralized(x){
     if(x==1){      
     try{                        
         map.setCenter(atego.getPosition());
-        map.serZoom(14);
     }catch (e) {
-        alert('alvo nao encontrado');
+        //alert('alvo nao encontrado');
     }
     }else{ 
 
@@ -153,13 +152,13 @@ function  centralized(x){
             try{
                 map.setCenter(atron.getPosition());
             }catch(e){
-                alert('alvo nao encontrado');
+                //alert('alvo nao encontrado');
         }
 
         }else    
             try{   
                 map.setCenter(omega.getPosition());
-                }catch(e){ alert('alvo nao encontrado');
+                }catch(e){ //alert('alvo nao encontrado');
                 }   
     }
 

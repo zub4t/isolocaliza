@@ -6,7 +6,6 @@
          <meta charset="UTF-8"> 
         <title>isolocaliza</title>
          <!-- SlidingMarker hides details from you - your markers are just animated automagically -->
-        <script type="text/javascript" src="scrpitMpa.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEQsqujVt5jhubQjf545HO9e2hNtR8API"></script>
     
         <script src="SlidingMarker.min.js"></script>
