@@ -1,10 +1,10 @@
 <?php 
-$placa= ($_GET['placa']);
+$date= ($_GET['date']);
 
 
-$name = 'valores.txt';
+$name = 'lista.txt';
 $file = fopen($name, 'a');
-$text = $placa.'\r\n';
+$text = $date.',';
 fwrite($file, $text);
 fclose($file);
 ?>

@@ -18,6 +18,11 @@
     window.Speed1=0;
     window.Speed2=0;
 
+    window.contx=' ';
+    window.foco=4;
+    mannegerFiles();
+
+
 
     window.atego = new google.maps.Marker({
             title:'ATEGO',
@@ -36,13 +41,14 @@
 
 
 
-
  document.addEventListener('DOMContentLoaded', function(){
         setInterval(function(){
             //here is where the code for call the functio which will get date from the my file.
         var p;
         
                 ajaxcall();
+                centralized(foco);
+
               
             }, 3000);//
    
@@ -127,9 +133,15 @@ function setValues(x){
     }
 }
 
+
+
+
+
+
+
 function  ajaxcall(){
 				$.ajax({
-				url: 'mostra.php',
+				url: 'mostra.php?nome='+contx,
 				success: function(data) {
                     console.log(data.split('T'));
                    	setValues(data.split('T'));
@@ -138,6 +150,46 @@ function  ajaxcall(){
                        );
         
         }
+
+
+
+
+function  mannegerFiles(){
+        $.ajax({
+          url: 'scren.php',
+          success: function(data) {
+            ChoseFile(data.split('T'));
+                    
+          },error: function() {
+            console.log('erro');
+      }
+        });
+        
+}
+
+function  addOnlist(date){
+        $.ajax({
+          url: 'addList.php?date='+date,
+          success: function(data) {                    
+          }
+        });
+        
+}
+
+function  ChoseFile(dados){
+  for (var i = dados.length - 1; i >= 0; i--) {
+    if(dados[i]!=''){
+      contx=dados[i];
+      console.log('Meu arq e'+dados[i]);
+      addOnlist(dados[i]);
+      return dados[i];
+    }
+  }
+  return '';
+}
+
+
+
 
 function  centralized(x){
     if(x==1){      
@@ -161,8 +213,15 @@ function  centralized(x){
                 }catch(e){ //alert('alvo nao encontrado');
                 }   
     }
-
 }
+
+
+
+
+
+
+
+
   
    
 function initMap() {

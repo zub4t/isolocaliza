@@ -43,7 +43,11 @@
                 <a class="icon honda" value="honda, manaus" onclick="getRoute('honda, manaus')"> </a>
                 <a class="icon philco" value="philco, manaus" onclick="getRoute('philco, manaus')"> </a>
 
-                
+                <div class="icon caminhao">
+                <label class="radio"> <input type="radio" name="caminhao" value="atego" id="radio"> atego </label>
+                <label class="radio">  <input type="radio" name="caminhao" value="atron" id="radio"> atron</label>
+                <label class="radio"> <input type="radio" name="caminhao" value="omega" id="radio"> omega</label>
+                </div>
                 <!-- here should be the icon for sherch the car on the map--><a class="icon car" onclick="drop()"> </a>
                 <!-- here should be the icon for help the user anderstand how the plataform works--><a  class="icon help"> </a>
                 <!-- here should be the icon which can customazing some preferes of the users--><a class="icon tools"> </a>

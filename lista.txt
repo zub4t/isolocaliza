@@ -1,1 +1,1 @@
-valores0.txt,valores5.txt,valores2.txt,t
+valores1.txt,valores4.txt,valores8.txt,valores9.txt,

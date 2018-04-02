@@ -1,6 +1,7 @@
 <?php
 //ABRE O ARQUIVO TXT
-$nome="valores.txt";
+
+$nome=($_GET['nome']);
 
 
 $linhas = explode("\n", file_get_contents($nome)); 

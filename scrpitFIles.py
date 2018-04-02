@@ -1,8 +1,6 @@
 #this file will contain which i named of maneger Sever. your job is manege the creation of file for reading.
 # when the user charge the document on your computer  that will contain a function 
 
-
-
 import time
 while True:
     try:
@@ -16,9 +14,10 @@ while True:
 
 
 
-        
+    open('valores.txt', 'w').write('')  
     print('terminei')
     
     #original.close()
-    time.sleep(20)
+    time.sleep(80)
+
     

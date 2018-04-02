@@ -76,14 +76,57 @@ $(document).ready(function(){
         
         });
         
-        function callSpeed(){ $(".SpeedAtron").attr('data-conteudo', Speed1+"Km/h");}
-        setInterval(callSpeed,1500);
-        
-        function callSpeed1(){ $(".SpeedAtego").attr('data-conteudo', Speed+"Km/h");}
-        setInterval(callSpeed1,1500);
+
+
+
+function AumentarVelocidade (New) { 
+                setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+                    $(".SpeedAtego").attr('data-conteudo', New+"Km/h");
+                    New++;   
+                    console.log(New);                  //  increment the counter
+                    if (New < Speed) {            //  if the counter < 10, call the loop function
+                         AumentarVelocidade(New);             //  ..  again which will trigger another 
+                    }                        //  ..  setTimeout()
+                }, 200);
+            }
+
+
+
+
+function DiminuirVelocidade (New) { 
+                setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+                    $(".SpeedAtego").attr('data-conteudo', New+"Km/h");
+                    New--;   
+                    console.log(New);                  //  increment the counter
+                    if (New > Speed) {            //  if the counter < 10, call the loop function
+                         DiminuirVelocidade(New);             //  ..  again which will trigger another 
+                    }                        //  ..  setTimeout()
+                }, 200);
+            }
+
+        function callSpeed(){ 
+            var old = String($(".SpeedAtego").attr('data-conteudo')).split("K");
     
-        function callSpeed2(){ $(".SpeedOmega").attr('data-conteudo', Speed2+"Km/h");}
-        setInterval(callSpeed2,1500);
+            if( typeof  $(".SpeedAtego").attr('data-conteudo') === "undefined"){
+                old[0] = 0;
+            }
+            if(parseInt(old[0])<Speed){
+                AumentarVelocidade(parseInt(old[0]));
+            }else{
+                DiminuirVelocidade(parseInt(old[0]));
+ 
+            }
+        }
+        setInterval(callSpeed,3000);
+        
+        function callSpeed1(){ 
+        }
+        setInterval(callSpeed1,3000);
+    
+        function callSpeed2(){ 
+
+        }
+        setInterval(callSpeed2,3000);
     
       $(".Omega").hover(function(){
         //$(".Omega").removeClass("SpeedOmega");
@@ -105,6 +148,34 @@ $(document).ready(function(){
                    console.log("To aqui"); });
    
     
+
+
+
+    $( "#radio" ).change(function() {
+        switch($(this).val()) {
+            case 'atego' :
+                console.log('atego selecionado');
+                foco=1;
+                break;
+            case 'atron' :
+                console.log('atron selecionado');
+                foco=2;
+               
+                break;
+            case 'omega' :
+                console.log('omega selecionado');
+                foco=3;
+                break;
+        }            
+    });
+
+
+
+
+
+
+
+
 
 });
 
