@@ -1,3 +1,11 @@
+
+@media only screen and (min-device-width: 481px) {
+
+
+
+
+
+
 body{
     display: flex;
     align-items: center;
@@ -56,8 +64,8 @@ body{
 }
 
 .drawer::after{
-        content: " ";
- background-color: white;
+    content: " ";
+    background-color: white;
     border-radius: 15px 50px;
     width: 70em;
     display: block;
@@ -584,4 +592,288 @@ cursor: pointer;
     to {opacity: 1; top:400px ;}
 }
 
+}
+/* Code mobile go  here
+    I used The iphone 6 scren as based
+    
+*/
+@media only screen and (max-device-width: 480px) {
 
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+#map {
+        height: 100%;
+        width: 100%;
+        z-index:1;
+       }
+.menu{
+
+    position: absolute;
+    bottom: 10em;
+    left: 50%;
+}
+.drawer-mobile{
+    content:" ";
+    z-index: 3;
+    background-color: white;
+    display: none;
+    height:  600px;
+    width:  480px;
+    position: absolute;
+    left: 27%;
+    bottom:13em;
+    border-radius: 15px 50px;
+
+
+
+}
+
+.icons-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left:40%;
+    top:50px;
+
+   
+}
+.atego-mobile{
+    background-image: url("png/jeep.png");
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+
+
+}
+
+.atron-mobile{
+    background-image: url("png/jeep1.png");
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+
+}
+
+.omega-mobile{
+    background-image: url("png/jeep2.png");
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+        margin: 20px;
+
+}
+
+.velocidade-mobile{
+    background-image: url("png/dashboard.png");
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+        margin: 20px;
+
+
+}
+.radio{
+    display: none;
+}
+
+
+
+/*here is the code witch will shal show us about the speed*/
+
+.GeneralSpeeds{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: center
+
+}
+.GeneralSpeeds::after{
+    content: ' ';
+    background-image: url(png/down-arrow.png);
+    background-size:    contain;
+    display: none;
+    height: 90px;
+    width: 90px;
+    z-index: 4;
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    cursor: pointer;
+}
+.Speed{
+    opacity: 0; 
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    height: 8px;
+    width: 8px;
+}
+
+
+
+
+
+.SpeedAtego::after{
+    content: '';
+    background-image: url(png/see.png);
+    background-size:contain;
+    border-radius: 100%; 
+    height: 100px;
+    width: 100px;
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    z-index: 3;
+    animation-name: atego;
+    animation-duration: .6s;
+     animation-fill-mode:forwards;
+    -webkit-animation-duration: .6s;
+    -webkit-animation-name: atego; 
+    -webkit-animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+
+}
+
+
+
+
+.SpeedAtego::before{
+   content: attr(data-conteudo);
+    font-size:22px;
+
+    color:white;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 50px;
+    right: 110px;
+    z-index: 4;
+
+    
+}
+
+
+
+
+.SpeedAtron::after{
+    content: ' ';
+       background-image: url(png/see.png);
+    background-size:contain;
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    display: block;
+    position: absolute;
+    top: 200px;
+    right: 50px;
+    z-index: 3;
+    
+    
+     animation-name: atron;
+    animation-duration: .6s;
+     animation-fill-mode:forwards;
+    -webkit-animation-duration: .6s;
+    -webkit-animation-name: atron; 
+    -webkit-animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1; 
+    
+}
+
+
+
+
+
+.SpeedAtron::before{
+    content: attr(data-conteudo);
+    font-size: 22px;
+    color: white;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 230px;
+    right: 110px;
+    z-index: 4;
+  
+    
+}
+
+
+
+
+.SpeedOmega::after{
+    content: ' ';
+        background-image: url(png/see.png);
+    background-size:contain;
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    display: block;
+    position: absolute;
+    top: 400px;
+    right: 50px;
+    z-index: 3;
+    
+        
+      animation-name: omega;
+    animation-duration: .6s;
+     animation-fill-mode:forwards;
+    -webkit-animation-duration: .6s;
+    -webkit-animation-name: omega; 
+    -webkit-animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    
+    
+    
+}
+
+
+.SpeedOmega::before{
+   content: attr(data-conteudo);
+    font-size: 22px;
+
+    color: white;
+ 
+    height: 25px;
+    width: 25px;
+    display: block;
+    position: absolute;
+    top: 430px;
+    right: 110px;
+    z-index: 4;
+
+    
+}
+
+
+.SpeedOut{
+ 
+    
+    
+      animation-name: out;
+    animation-duration: 2s;
+     animation-fill-mode:forwards;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-name: out; 
+    -webkit-animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    
+    
+    
+}
+
+
+}

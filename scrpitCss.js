@@ -1,5 +1,7 @@
- window.flagSpeed=true;
-window.flagCar=true;
+    window.flagSpeed=true;
+    window.flagSpeed1=true;
+    window.flagCar=true;
+    window.flagDrwaer=true;
 $(document).ready(function(){
     
 
@@ -32,6 +34,7 @@ $(document).ready(function(){
 
     
         $(".help").click(function(){
+            console.log("entrei");
             if(flagSpeed){
                 $(".Atego").removeClass("Speed");
                 $(".Atego").removeClass("SpeedOut");
@@ -75,6 +78,57 @@ $(document).ready(function(){
             }else{$(".omegaSerch").css({display:"none"});}*/
         
         });
+
+
+
+
+
+
+        $(".velocidade-mobile").click(function(){
+            console.log("entrei");
+            if(flagSpeed1){
+                $(".Atego").removeClass("Speed");
+                $(".Atego").removeClass("SpeedOut");
+
+                $(".Atego").addClass("SpeedAtego");
+            
+                $(".Atron").removeClass("Speed");
+                $(".Atron").removeClass("SpeedOut");
+
+                $(".Atron").addClass("SpeedAtron");
+            
+                $(".Omega").removeClass("Speed");
+                $(".Omega").removeClass("SpeedOut");
+
+                $(".Omega").addClass("SpeedOmega");
+                        flagSpeed1=false; 
+                    console.log(flagSpeed1);
+            }else{
+                
+                $(".Atego").removeClass("SpeedAtego");
+                $(".Atego").addClass("SpeedOut");
+            
+                $(".Atron").removeClass("SpeedAtron");
+                $(".Atron").addClass("SpeedOut");
+            
+                $(".Omega").removeClass("SpeedOmega");
+                $(".Omega").addClass("SpeedOut");
+                flagSpeed1=true; 
+
+                console.log('no else');
+            }
+        
+         /*  if(markers.length>0){
+                $(".ategoSerch").css({display:"block"});
+            }else{$(".ategoSerch").css({display:"none"});}
+            if(markers1.length>0){
+                $(".atronSerch").css({display:"block"});
+            }else{$(".atronSerch").css({display:"none"});}
+            if(markers2.length>0){
+                $(".omegaSerch").css({display:"block"});
+            }else{$(".omegaSerch").css({display:"none"});}*/
+        
+        });        
         
 
 
@@ -170,6 +224,18 @@ function DiminuirVelocidade (New) {
     });
 
 
+    $(".hamburger").click(function(){
+        $(".hamburger").toggleClass("is-active");
+        if(flagDrwaer){
+            $(".drawer-mobile").fadeIn(500);
+            flagDrwaer = false;
+        }else{
+
+            $(".drawer-mobile").fadeOut(500);
+            flagDrwaer = true;
+        }
+
+    });
 
 
 

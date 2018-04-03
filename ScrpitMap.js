@@ -195,6 +195,7 @@ function  centralized(x){
     if(x==1){      
     try{                        
         map.setCenter(atego.getPosition());
+        console.log("procurando atego");
     }catch (e) {
         //alert('alvo nao encontrado');
     }
@@ -203,6 +204,7 @@ function  centralized(x){
         if(x==2){
             try{
                 map.setCenter(atron.getPosition());
+                console.log("procurando atron");
             }catch(e){
                 //alert('alvo nao encontrado');
         }
@@ -210,6 +212,7 @@ function  centralized(x){
         }else    
             try{   
                 map.setCenter(omega.getPosition());
+                console.log("procurando omega");
                 }catch(e){ //alert('alvo nao encontrado');
                 }   
     }

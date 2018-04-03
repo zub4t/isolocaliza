@@ -15,6 +15,7 @@
         <script src="jquery.easing.1.3.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="scrpitCss.js"></script>
+        <link rel="stylesheet" type="text/css" href="hamburgers.css">
        
         <!-- we use markerAnimate to actually animate marker -->
 
@@ -34,7 +35,23 @@
         
         </div>
         
-        
+        <!-- mobile hambunguer-->
+        <button class="hamburger menu hamburger--collapse" type="button">
+
+            <span class="hamburger-box">
+                <span class="hamburger-inner" ></span>
+            </span>
+        </button>  
+        <div class="drawer-mobile"> 
+        <div class="icons-mobile"> 
+            <div class="atego-mobile" onclick="centralized(1)" > </div> 
+            <div class="atron-mobile" onclick="centralized(2)"> </div>
+            <div class="omega-mobile" onclick="centralized(3)"> </div>
+            <div class="velocidade-mobile"> </span>
+        </div>
+
+
+        </div>
         <div class="wraped">   
             <div class="drawer" id="drawer"> 
                 <!-- drawer is where the icons shall stay --> 
