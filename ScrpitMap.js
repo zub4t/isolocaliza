@@ -6,13 +6,6 @@
     window.markers1 = [];
     window.markers2 = [];
 
-    window.Clocationlat=0;
-    window.Clocation1lat=0;
-    window.Clocation2lat=0;
- 
-    window.Clocationlng=0;
-    window.Clocation1lng=0;
-    window.Clocation2lng=0;
     
     window.Speed=0;
     window.Speed1=0;
@@ -107,11 +100,20 @@ function setValues(x){
              
         
         if(x[4]==1){
+          if(typeof atego.getPosition() != 'undefined'){
+            var old = (new google.maps.LatLng(atego.getPosition().lat(),atego.getPosition().lng()));
+          } 
             console.log(' Atego position '+x[1]+' - '+x[2]);
             atego.setPosition(new google.maps.LatLng(x[1],x[2]));
-            console.log(atego.getPosition().lat());
-        
-            Speed=x[3];
+            var distance = google.maps.geometry.spherical.computeDistanceBetween(old,atego.getPosition());
+            Speed = (((distance)/3)*3.6);
+            if(Speed>120){
+              while(Speed > 120){
+                Speed = (Speed /2) ;
+              }
+              Speed = Speed - 20;
+          }
+            console.log(Speed);
     
         }
         if(x[4]==2){
@@ -130,6 +132,12 @@ function setValues(x){
             Speed2=x[3];
     
         }
+    }else{
+      Speed =0;
+      Speed1 =0;
+      Speed2 = 0;
+
+
     }
 }
 
@@ -217,7 +225,6 @@ function  centralized(x){
                 }   
     }
 }
-
 
 
 

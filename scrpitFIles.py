@@ -18,6 +18,6 @@ while True:
     print('terminei')
     
     #original.close()
-    time.sleep(80)
+    time.sleep(5)
 
     

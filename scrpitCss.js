@@ -137,7 +137,6 @@ function AumentarVelocidade (New) {
                 setTimeout(function () {    //  call a 3s setTimeout when the loop is called
                     $(".SpeedAtego").attr('data-conteudo', New+"Km/h");
                     New++;   
-                    console.log(New);                  //  increment the counter
                     if (New < Speed) {            //  if the counter < 10, call the loop function
                          AumentarVelocidade(New);             //  ..  again which will trigger another 
                     }                        //  ..  setTimeout()
@@ -151,7 +150,6 @@ function DiminuirVelocidade (New) {
                 setTimeout(function () {    //  call a 3s setTimeout when the loop is called
                     $(".SpeedAtego").attr('data-conteudo', New+"Km/h");
                     New--;   
-                    console.log(New);                  //  increment the counter
                     if (New > Speed) {            //  if the counter < 10, call the loop function
                          DiminuirVelocidade(New);             //  ..  again which will trigger another 
                     }                        //  ..  setTimeout()
