@@ -1,14 +1,15 @@
 body{
-   background:  linear-gradient(to bottom right, rgba(46,204,113,1), rgba(36,196,135,1));
-    
+    background:  linear-gradient(to bottom right, rgba(46,204,113,1), rgba(36,196,135,1));
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     
 }
 
 .loader{
+    margin: 50px;
     background-image: url(png/Spinner-1s-200px.gif);
-    position: absolute;
-    bottom: 50%;
-    right: 46%;
     height: 100px;
     width: 100px;
     background-size: contain;
@@ -16,10 +17,9 @@ body{
 }
 
 .latter{
- background-image: url(png/1_-02.png);
-    position: absolute;
-    bottom: 65%;
-    right: 2%;
+    background-image: url(png/1_-02.png);
+    position: relative;
+    left: 10em;
     height: 100px;
     width: 1000px;
     background-size: contain;

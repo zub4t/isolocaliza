@@ -1,0 +1,22 @@
+.icons{
+    height: 75px;
+    width: 75px;
+    cursor: pointer;
+}
+
+.cars{
+    background-image: url(png/car.png);
+        background-size: contain;
+
+}
+    
+    
+
+
+.Letter{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-family: 'Roboto Slab', serif;
+
+
+}
